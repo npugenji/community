@@ -18,8 +18,6 @@ public class GithubProvider {
 
     public String getAccessToken(AccessTokenDTO accessTokenDTO){
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
-//        System.setProperty("javax.net.ssl.trustStore","D:\\IDEA\\jbr\\lib\\security\\jssecacerts");
-//        System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
         OkHttpClient client = new OkHttpClient()
                 .newBuilder()
                 .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())//配置
@@ -47,8 +45,6 @@ public class GithubProvider {
                 .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())//配置
                 .hostnameVerifier(SSLSocketClient.getHostnameVerifier())//配置
                 .build();
-//        System.setProperty("javax.net.ssl.trustStore","D:\\IDEA\\jbr\\lib\\security\\jssecacerts");
-//        System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
         Request request = new Request.Builder()
                 .url("https://api.github.com/user?access_token=" + accessToken)
                 .build();

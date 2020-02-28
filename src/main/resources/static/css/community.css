@@ -30,8 +30,75 @@ body {
 .community-menu {
     font-size: 13px;
     color: #999;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .jumbotron {
     margin: 50px;
+}
+
+.media-body {
+    padding-top: 8px;
+}
+
+.form-control {
+    margin: 10px 0;
+}
+
+.menu {
+    color: #999;
+}
+
+.menu .icon{
+    font-size: 15px;
+    margin-right: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.menu .active {
+    color: #499ef3;
+}
+
+.menu .icon:hover {
+    color: #499ef3;
+}
+
+.comments {
+    border-bottom: 1px solid #f5f5f5;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+}
+
+.comment-sp {
+    margin-top: 3px;
+}
+
+.sub-comments {
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding-top: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.sub-comments .btn {
+    margin: 5px 0;
+}
+
+.question-tag {
+    margin-right: 5px;
+}
+
+.question-related {
+    line-height: 20px;
+    font-size: 12px;
+    margin-left: 0;
+    list-style: none;
+    padding-left: 0;
+}
+
+.recommend-image {
+    width: 100%;
 }

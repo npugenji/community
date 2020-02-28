@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="/css/community.css"/>
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
-
+    <script type="application/javascript">
+        window.onload = function() {
+            var closeable = window.localStorage.getItem("closeable");
+            if ( closeable == "true" ) {
+                window.close();
+                window.localStorage.removeItem("closeable");
+            }
+        }
+    </script>
 </head>
 <body>
 <div th:insert="navigation :: nav"></div>
@@ -44,25 +52,25 @@
     <nav aria-label="Page navigation">
         <ul class="pagination">
             <li th:if="${pagination.showFirstPage}">
-                <a href="/?page=1" aria-label="First" >
+                <a th:href="@{/(page=1,search=${search})}" aria-label="First" >
                     <span aria-hidden="true">&lt;&lt;</span>
                 </a>
             </li>
             <li th:if="${pagination.showPreviousPage}">
-                <a th:href="@{/(page=${pagination.page - 1})}" aria-label="Previous" >
+                <a th:href="@{/(page=${pagination.page - 1},search=${search})}" aria-label="Previous" >
                     <span aria-hidden="true">&lt;</span>
                 </a>
             </li>
             <li th:each="page : ${pagination.pageIndex}" th:class="${page == pagination.page} ? 'active' : ''">
-                <a th:href="@{/(page=${page})}" th:text="${page}"></a>
+                <a th:href="@{/(page=${page},search=${search})}" th:text="${page}"></a>
             </li>
             <li th:if="${pagination.showNextPage}">
-                <a th:href="@{/(page=${pagination.page + 1})}" aria-label="Next">
+                <a th:href="@{/(page=${pagination.page + 1},search=${search})}" aria-label="Next">
                     <span aria-hidden="true">&gt;</span>
                 </a>
             </li>
             <li th:if="${pagination.showLastPage}">
-                <a th:href="@{/(page=${pagination.totalPage})}" aria-label="Next">
+                <a th:href="@{/(page=${pagination.totalPage},search=${search})}" aria-label="Next">
                     <span aria-hidden="true">&gt;&gt;</span>
                 </a>
             </li>
